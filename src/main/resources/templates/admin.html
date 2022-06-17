@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,9 +17,9 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse show" id="navbarDark">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-                <span class="align-middle font-weight-bold mr-1" th:text="${userMain.getName()}"></span>
+                <span class="align-middle font-weight-bold mr-1" sec:authentication="name"></span>
                 <span class="align-middle mr-1">with roles:</span>
-                <span class="align-middle" th:each="role : ${userMain.getRoles()}" th:text="${role.getName}"></span>
+                <span class="align-middle" sec:authentication="principal.authorities"></span>
             </ul>
         </div>
 
